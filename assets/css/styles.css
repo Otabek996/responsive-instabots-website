@@ -1,0 +1,345 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    /*========== Colors ==========*/
+    --primary-color: #4754EB;
+    --body-color: #FFFFFF;
+    --menu-background-color: rgba(255, 255, 255, 0.65);
+    --text-color-white: #FFFFFF;
+    --text-color-gray: #808080;
+    --text-color-grayer: #595959;
+    --text-color-black: #1A1A1A;
+    --heading-color-black: #1A1A1A;
+    --btn-hover-color: #3c4cfe;
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Roboto Mono', sans-serif;
+
+    /*========== Font size ==========*/
+    --big-font-size: 3.5rem; /*= 56px =*/
+    --h1-font-size: 3.5rem; /*= 56px =*/
+    --h2-font-size: 2.25rem; /*= 36px =*/
+    --h3-font-size: 1.5rem; /*= 24px =*/
+    --normal-font-size: 1.125rem; /*= 18px =*/
+    --small-font-size: 1rem; /*= 16px =*/
+    --smaller-font-size: 0.75rem; /*= 12px =*/
+
+    /*========== Line height ==========*/
+    --big-line-height: 4.375rem; /*= 70px =*/
+    --h1-line-height: 4.375rem; /*= 70px =*/
+    --h2-line-height: 2.5rem; /*= 40px =*/
+    --h3-line-height: 1.5rem; /*= 24px =*/
+    --normal-line-height: 1.5rem; /*= 24px =*/
+    --small-line-height: 1.375rem; /*= 22px =*/
+    --smaller-line-height: 1rem; /*= 16px =*/
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+}
+
+/*==================== BASE ====================*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color-gray);
+}
+
+h1, h2, h3, h4 {
+    color: var(--heading-color-black);
+    font-weight: var(--font-medium);
+}
+
+ul {
+    list-style: none;
+}
+  
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+.container {
+    max-width: 93%;
+    margin: 0 auto;
+}
+
+.btn-main {
+    font-family: var(--body-font);
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
+    line-height: var(--normal-line-height);
+    color: var(--text-color-white);
+    border: none;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: 0.4s linear;
+}
+
+.btn-main:hover {
+    background: var(--btn-hover-color);
+}
+
+/*=============== HEADER ===============*/
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: transparent;
+}
+
+/*==================== NAV ====================*/
+.nav {
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__left {
+    display: flex;
+    align-items: center;
+}
+
+.nav__toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1.5rem;
+}
+
+.nav__close {
+    display: none;
+    color: var(--primary-color);
+}
+
+.nav__logo, .nav__toggle {
+    color: var(--primary-color);
+}
+
+.nav__logo {
+    font-weight: var(--font-medium);
+    line-height: var(--normal-line-height);
+}
+
+.nav__right {
+    display: flex;
+    align-items: center;
+}
+
+.nav__menu {
+    position: relative;
+}
+
+.nav__menu-title {
+    display: none;
+}
+
+@media screen and (max-width: 1010px) {
+    .nav__menu {
+        position: fixed;
+        background-color: var(--body-color);
+        top: 5rem;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        transition: 0.4s;
+        padding: 80px 56px;
+        background: var(--menu-background-color);
+    }
+}
+
+.show-menu {
+    left: 0;
+}
+
+.hidden-icon {
+    display: none;
+}
+
+.show-icon {
+    display: flex;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.nav__item:nth-child(3),
+.nav__item:nth-child(5) {
+    margin: 0 1.5rem;
+}
+
+.nav__item:nth-child(7) {
+    margin-left: 6.0313rem;
+    margin-right: 1rem;
+}
+
+.nav__link {
+    color: var(--text-color-gray);
+    font-weight: var(--font-regular);
+    line-height: var(--normal-line-height);
+    text-transform: capitalize;
+    transition: 0.4s linear;
+}
+
+.nav__link:hover {
+    color: var(--primary-color);
+}
+
+.languages span {
+    font-weight: var(--font-medium);
+    line-height: var(--normal-line-height);
+    margin: 0 -0.625rem;
+}
+
+.lan {
+    font-weight: var(--font-medium);
+    line-height: var(--normal-line-height);
+    color: var(--text-color-gray);
+}
+
+.active-lan {
+    color: var(--primary-color);
+}
+
+.btn-user {
+    display: none;
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For large devices */
+@media screen and (max-width: 1060px) {
+    /* Navbar */
+    .nav__item:nth-child(7) {
+        margin: 0 1rem 0 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1010px) {
+    /* Navbar */
+    .nav__menu-title,
+    .nav__toggle {
+        display: flex;
+    }
+
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .nav__menu-title {
+        font-size: var(--h3-font-size);
+        font-weight: var(--font-medium);
+        line-height: var(--h3-line-height);
+        color: var(--text-color-gray);
+    }
+
+    .nav__item:nth-child(7),
+    .nav__item:nth-child(3),
+    .nav__item:nth-child(5) {
+        margin: 0;
+    }
+
+    .nav__item:nth-child(2) {
+        margin: 2.5rem 0 1.5rem 0;
+    }
+
+    .nav__item:nth-child(4) {
+        margin: 1.5rem 0;
+    }
+
+    .nav__item:nth-child(6) {
+        margin: 1.5rem 0 9.75rem 0;
+    }
+
+    .nav__link,
+    .languages {
+        font-size: var(--big-font-size);
+        font-weight: var(--font-medium);
+        line-height: var(--big-line-height);
+    }
+
+    .nav__link {
+        color: var(--text-color-black);
+    }
+
+    .active-link {
+        color: var(--primary-color);
+    }
+
+    .languages span {
+        margin: 0 -2rem;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    /* Navbar */
+    .btn-login {
+        padding: 9px 12px;
+        border-radius: 24px;
+    }
+
+    .btn-login-text {
+        display: none;
+    }
+
+    .btn-user {
+        display: flex;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 450px) {
+    /* Navbar */
+    .nav__menu {
+        padding: 40px 20px;
+    }
+
+    .nav__item:nth-child(2) {
+        margin: 1.5rem 0 1rem 0;
+    }
+
+    .nav__item:nth-child(4) {
+        margin: 1rem 0;
+    }
+
+    .nav__item:nth-child(6) {
+        margin: 1rem 0 16.875rem 0;
+    }
+
+    .nav__link,
+    .languages {
+        font-size: var(--h2-font-size);
+        font-weight: var(--font-medium);
+        line-height: var(--h2-line-height);
+    }
+
+    .languages span {
+        margin: 0 -1.3rem;
+    }
+}
