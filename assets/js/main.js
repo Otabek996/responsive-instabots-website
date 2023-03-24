@@ -13,11 +13,20 @@ if (navToggle) {
     });
 }
 
-/*===== MENU HIDDEN =====*/
-// if (navClose) {
-//     navClose.addEventListener('click', () => {
-//         navMenu.classList.remove('show-menu');
-//         navOpen.classList.remove('hidden-icon');
-//         navClose.classList.remove('show-icon');
-//     });
-// }
+/*==================== REMOVE MENU MOBILE ====================*/
+const navLink = document.querySelectorAll('.nav__link');
+
+function linkAction () {
+    navMenu.classList.remove('show-menu');
+    navOpen.classList.toggle('hidden-icon');
+    navClose.classList.toggle('show-icon');
+}
+navLink.forEach(n => n.addEventListener('click', linkAction));
+
+
+
+
+navLink.forEach(m => m.addEventListener('click', () => {
+    navLink.forEach(b => b.classList.remove('active-link'));
+    m.classList.toggle('active-link');
+}));

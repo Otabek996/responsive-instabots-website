@@ -3,10 +3,13 @@
 
 /*==================== VARIABLES CSS ====================*/
 :root {
+    --header-height: 5rem;
+
     /*========== Colors ==========*/
     --primary-color: #4754EB;
     --body-color: #FFFFFF;
     --menu-background-color: rgba(255, 255, 255, 0.65);
+    --background-color: rgba(255, 255, 255, 0.5);
     --text-color-white: #FFFFFF;
     --text-color-gray: #808080;
     --text-color-grayer: #595959;
@@ -82,6 +85,11 @@ img {
     margin: 0 auto;
 }
 
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
 .btn-main {
     font-family: var(--body-font);
     font-weight: var(--font-medium);
@@ -100,6 +108,25 @@ img {
     background: var(--btn-hover-color);
 }
 
+.btn-white {
+    font-family: var(--body-font);
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
+    line-height: var(--normal-line-height);
+    color: var(--primary-color);
+    border: none;
+    background: var(--body-color);
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: 0.4s linear;
+}
+
+.btn-white:hover {
+    background: var(--primary-color);
+    color: var(--text-color-white);
+}
+
 /*=============== HEADER ===============*/
 .header {
     width: 100%;
@@ -112,7 +139,7 @@ img {
 
 /*==================== NAV ====================*/
 .nav {
-    height: 5rem;
+    height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -230,6 +257,94 @@ img {
     display: none;
 }
 
+/*=============== HOME ===============*/
+.home {
+    background: rgb(211,185,229);
+    background: linear-gradient(45deg, rgba(211,185,229,1) 0%, rgba(209,206,246,1) 18%, rgba(255,255,255,1) 42%);
+}
+
+.home__container {
+    height: 100vh;
+    align-content: center;
+    grid-template-columns: auto auto;
+}
+
+.home__data-title {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-medium);
+    line-height: var(--h1-line-height);
+    color: var(--heading-color-black);
+    margin: 120px 0 40px 0;
+}
+
+.home__data-form {
+    display: flex;
+    justify-content: space-between;
+    width: 465px;
+    background: var(--background-color);
+    border-radius: 16px;
+    transition: 0.4s linear;
+    padding: 8px;
+}
+
+.home__data-form-input {
+    width: 75%;
+    background: var(--background-color);
+    border-radius: 16px;
+    border: none;
+    padding: 20px 8px;
+}
+
+.home__data-form-input,
+.home__data-form-input::placeholder {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-regular);
+    line-height: var(--normal-line-height);
+    color: var(--text-color-gray);
+}
+
+.home__data-form-input:focus {
+    outline: none;
+}
+
+.home__data-subtitle {
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-regular);
+    line-height: var(--smaller-line-height);
+    color: var(--text-color-grayer);
+    margin: 16px 0 165px 0;
+}
+
+.home__data-subtitle .home__data-subtitle-info {
+    color: var(--primary-color);
+}
+
+.home__data-subtitle .home__data-subtitle-info:hover {
+    text-decoration: underline;
+}
+
+.home__data-text {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-regular);
+    line-height: var(--small-line-height);
+    color: var(--text-color-white);
+}
+
+.home__data-text span .mouse {
+    font-size: 1.7rem;
+    vertical-align: middle;
+
+    animation-name: scroll;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+.home__cover {
+    text-align: center;
+}
+
 /*=============== MEDIA QUERIES ===============*/
 /* For large devices */
 @media screen and (max-width: 1060px) {
@@ -341,5 +456,17 @@ img {
 
     .languages span {
         margin: 0 -1.3rem;
+    }
+}
+
+/*=============== ANIMATIONS ===============*/
+@keyframes scroll {
+    from {
+        color: red;
+        transform: translateY(20px);
+    }
+    to {
+        color: blue;
+        transform: translateY(-20px);
     }
 }
