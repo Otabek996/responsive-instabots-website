@@ -27,7 +27,8 @@
     --h3-font-size: 1.5rem; /*= 24px =*/
     --normal-font-size: 1.125rem; /*= 18px =*/
     --small-font-size: 1rem; /*= 16px =*/
-    --smaller-font-size: 0.75rem; /*= 12px =*/
+    --smaller-font-size: 0.875rem; /*= 14px =*/
+    --smallest-font-size: 0.75rem; /*= 12px =*/
 
     /*========== Line height ==========*/
     --big-line-height: 4.375rem; /*= 70px =*/
@@ -36,7 +37,8 @@
     --h3-line-height: 1.5rem; /*= 24px =*/
     --normal-line-height: 1.5rem; /*= 24px =*/
     --small-line-height: 1.375rem; /*= 22px =*/
-    --smaller-line-height: 1rem; /*= 16px =*/
+    --smaller-line-height: 1.1875rem; /*= 19px =*/
+    --smallest-line-height: 1rem; /*= 16px =*/
 
     /*========== Font weight ==========*/
     --font-regular: 400;
@@ -134,7 +136,8 @@ img {
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: transparent;
+    background: var(--menu-background-color);
+    backdrop-filter: blur(10px);
 }
 
 /*==================== NAV ====================*/
@@ -187,14 +190,13 @@ img {
 @media screen and (max-width: 1010px) {
     .nav__menu {
         position: fixed;
-        background-color: var(--body-color);
         top: 5rem;
         left: -100%;
         width: 100%;
-        height: 100%;
         transition: 0.4s;
         padding: 80px 56px;
         background: var(--menu-background-color);
+        backdrop-filter: blur(10px);
     }
 }
 
@@ -257,7 +259,7 @@ img {
     display: none;
 }
 
-/*=============== HOME ===============*/
+/*!=============== HOME ===============*/
 .home {
     background: rgb(211,185,229);
     background: linear-gradient(45deg, rgba(211,185,229,1) 0%, rgba(209,206,246,1) 18%, rgba(255,255,255,1) 42%);
@@ -308,9 +310,9 @@ img {
 }
 
 .home__data-subtitle {
-    font-size: var(--smaller-font-size);
+    font-size: var(--smallest-font-size);
     font-weight: var(--font-regular);
-    line-height: var(--smaller-line-height);
+    line-height: var(--smallest-line-height);
     color: var(--text-color-grayer);
     margin: 16px 0 165px 0;
 }
@@ -342,7 +344,59 @@ img {
 }
 
 .home__cover {
-    text-align: center;
+    margin: auto 0;
+}
+
+/*=============== ADVANTAGES ===============*/
+.advantages__container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    gap: 2.5rem;
+}
+
+.advantages__title {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
+    line-height: var(--h2-line-height);
+    color: var(--text-color-black);
+}
+
+.advantages__cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.advantages__card {
+    border-radius: 20px;
+    padding: 12px 24px 24px 24px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    transition: 0.4s linear;
+}
+
+.advantages__card:hover {
+    background: #ecdcf6;
+    transform: scale(1.04);
+}
+
+.advantages__card-title {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    line-height: var(--h3-line-height);
+    color: var(--text-color-black);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 16px;
+}
+
+.advantages__card-subtitle {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-regular);
+    line-height: var(--normal-line-height);
+    color: var(--text-color-gray);
 }
 
 /*=============== MEDIA QUERIES ===============*/
@@ -410,8 +464,47 @@ img {
     .languages span {
         margin: 0 -2rem;
     }
+
+    /* Advantages */
+    .advantages__cards {
+        flex-direction: column;
+    }
 }
 
+@media screen and (max-width: 950px) {
+    /* Home */
+    .home__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        /* background: rgb(211,185,229); */
+        /* background: linear-gradient(45deg, rgba(211,185,229,1) 0%, rgba(209,206,246,0.4514180672268907) 35%, rgba(255,255,255,1) 65%, rgba(255,255,255,0.6783088235294117) 100%); */
+    }
+
+    .home__data-text {
+        display: none;
+    }
+    
+    .home__data-subtitle {
+        margin: 16px 0 0 0;
+    }
+
+    .home__cover {
+        text-align: end;
+        margin: -40px 0 60px 0;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 720px) {
+    /* Advantages */
+    .advantages__title {
+        margin-left: 40px;
+    }
+}
+
+/* For small devices */
 @media screen and (max-width: 560px) {
     /* Navbar */
     .btn-login {
@@ -426,9 +519,39 @@ img {
     .btn-user {
         display: flex;
     }
+
+    /* Home */
+    .home__data-title {
+        font-size: var(--h2-font-size);
+        line-height: calc(var(--h2-line-height) + 5);
+        margin: 120px 0 40px 0;
+        padding: 0 20px;
+    }
+
+    .home__data-form {
+        width: 320px;
+        padding: 0 20px;
+    }
+
+    .home__data-form-input::placeholder {
+        font-size: var(--smaller-font-size);
+        line-height: var(--smaller-line-height);
+    }
+
+    .btn-send-email {
+        font-size: var(--smaller-font-size);
+        line-height: var(--smaller-line-height);
+    }
+
+    .home__data-subtitle {
+        padding: 0 20px;
+    }
+    
+    .home__cover {
+        margin: 40px 0;
+    }
 }
 
-/* For small devices */
 @media screen and (max-width: 450px) {
     /* Navbar */
     .nav__menu {
@@ -456,6 +579,30 @@ img {
 
     .languages span {
         margin: 0 -1.3rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    /* Advantages */
+    .advantages__container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        gap: 1.875rem;
+    }
+
+    .advantages__title {
+        font-size: var(--normal-font-size);
+        line-height: var(--normal-line-height);
+    }
+
+    .advantages__card-title {
+        font-size: var(--normal-font-size);
+        line-height: var(--normal-line-height);
+    }
+
+    .advantages__card-subtitle {
+        font-size: var(--smaller-font-size);
+        line-height: var(--smaller-line-height);
     }
 }
 
