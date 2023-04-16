@@ -654,6 +654,33 @@ img {
     margin: 0 auto;
 }
 
+/*=============== SALE ===============*/
+.sale__container {
+    padding: 80px 0;
+}
+
+.sale__content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.sale__data {
+    margin: 0 auto;
+}
+
+.sale__data-title {
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
+    line-height: var(--h2-line-height);
+    color: var(--text-color-black);
+    margin-bottom: 40px;
+}
+
+.sale__data-subtitle {
+    margin: 16px 0 0 0;
+}
+
 /*=============== MEDIA QUERIES ===============*/
 /* For large devices */
 @media screen and (max-width: 1600px) {
@@ -786,6 +813,12 @@ img {
         text-align: end;
         margin: -40px 0 60px 0;
     }
+
+    /* Sale */
+    .sale__content {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 /* For medium devices */
@@ -855,6 +888,11 @@ img {
     
     .home__cover {
         margin: 40px 0;
+    }
+
+    /* Sale */
+    .sale__data-title {
+        padding: 0 20px;
     }
 }
 
@@ -1014,6 +1052,15 @@ img {
     .reviews__card-text {
         font-size: var(--smaller-font-size);
         line-height: var(--smaller-line-height);
+    }
+
+    /* Sale */
+    .sale__container {
+        padding: 40px 0;
+    }
+    
+    .sale__content {
+        gap: 40px;
     }
 }
 
