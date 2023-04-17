@@ -253,6 +253,10 @@ img {
     color: var(--text-color-gray);
 }
 
+.active-link {
+    color: var(--primary-color);
+}
+
 .active-lan {
     color: var(--primary-color);
 }
@@ -261,7 +265,7 @@ img {
     display: none;
 }
 
-/*!=============== HOME ===============*/
+/*=============== HOME ===============*/
 .home {
     background: rgb(211,185,229);
     background: linear-gradient(45deg, rgba(211,185,229,1) 0%, rgba(209,206,246,1) 18%, rgba(255,255,255,1) 42%);
@@ -337,12 +341,6 @@ img {
 .home__data-text span .mouse {
     font-size: 1.7rem;
     vertical-align: middle;
-
-    animation-name: scroll;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: linear;
 }
 
 .home__cover {
@@ -1376,17 +1374,6 @@ img {
 }
 
 /*=============== ANIMATIONS ===============*/
-@keyframes scroll {
-    from {
-        color: red;
-        transform: translateY(20px);
-    }
-    to {
-        color: blue;
-        transform: translateY(-20px);
-    }
-}
-
 @keyframes fade {
     from {
         opacity: 0;
