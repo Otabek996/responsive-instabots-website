@@ -30,3 +30,12 @@ navLink.forEach(m => m.addEventListener('click', () => {
     navLink.forEach(b => b.classList.remove('active-link'));
     m.classList.toggle('active-link');
 }));
+
+/*==================== SHOW FAQ ====================*/
+const faqs = document.querySelectorAll(".faq");
+
+faqs.forEach(faq => {
+    faq.addEventListener("click", () => {
+        faq.classList.toggle("active");
+    });
+});
